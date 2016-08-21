@@ -1,0 +1,213 @@
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.config
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.CodeAnalysisLog.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.lastcodeanalysissucceeded
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\WPFToolkit.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\WPFToolkit.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.csprojResolveAssemblyReference.cache
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\MainWindow.baml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\Skins\MainSkin.baml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\MainWindow.g.cs
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\App.g.cs
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.cache
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.lref
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\App.baml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.g.resources
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.Properties.Resources.resources
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.csproj.GenerateResource.Cache
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.exe
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.pdb
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\DB\00092206.db3
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\SearchWindow.baml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\SearchWindow.g.cs
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\ObservedTime.baml
+C:\Users\jrtorres\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\ObservedTime.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\TrafficData.exe.config
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\TrafficData.exe
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\TrafficData.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\TrafficData.exe.CodeAnalysisLog.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\TrafficData.exe.lastcodeanalysissucceeded
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\SearchWindow.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\Skins\MainSkin.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\SearchWindow.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.cache
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.lref
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\App.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.g.resources
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.Properties.Resources.resources
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.exe
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.pdb
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\AboutUsWindow.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\AboutUsWindow.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\ContactWindow.baml
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\ContactWindow.g.cs
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\obj\Debug\TrafficData.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\WPFToolkit.dll
+C:\Users\User\Desktop\Project\TrafficData\TrafficData\bin\Debug\WPFToolkit.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.config
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.CodeAnalysisLog.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\TrafficData.exe.lastcodeanalysissucceeded
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\WPFToolkit.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\System.Data.SQLite.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\System.Data.SQLite.xml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\WPFToolkit.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.csprojResolveAssemblyReference.cache
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\ContactWindow.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\AboutUsWindow.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\SearchWindow.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\MainWindow.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\Skins\MainSkin.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\ContactWindow.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\AboutUsWindow.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\SearchWindow.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\MainWindow.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\App.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.cache
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.lref
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\App.baml
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.g.resources
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.Properties.Resources.resources
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.csproj.GenerateResource.Cache
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.exe
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData.pdb
+C:\Users\RD2\Documents\Visual Studio 2015\Projects\TrafficData\TrafficData\obj\Debug\TrafficData_Content.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\TrafficData.exe.config
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\TrafficData.exe
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\TrafficData.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\TrafficData.exe.CodeAnalysisLog.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\TrafficData.exe.lastcodeanalysissucceeded
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\WPFToolkit.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\EntityFramework.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\System.Data.SQLite.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\System.Data.SQLite.xml
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\WPFToolkit.pdb
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.csprojResolveAssemblyReference.cache
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\ContactWindow.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\AboutUsWindow.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\SearchWindow.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\MainWindow.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\Skins\MainSkin.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\ContactWindow.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\AboutUsWindow.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\SearchWindow.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\MainWindow.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\App.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData_Content.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.cache
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData_MarkupCompile.lref
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\App.baml
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.g.resources
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.Properties.Resources.resources
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.csproj.GenerateResource.Cache
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.exe
+C:\Users\RD2\Documents\TrafficData\TrafficData\obj\Debug\TrafficData.pdb

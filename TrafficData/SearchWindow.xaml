@@ -1,0 +1,1789 @@
+﻿<Window x:Class="TrafficData.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        mc:Ignorable="d ignore"
+        Height="630.018"
+        Width="1210.621"
+        Title="Traffic Data Analyzer"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding Search, Source={StaticResource Locator}}" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#212121">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="HeaderGrid" Grid.Row="0" Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Margin="10,0,0,0" Grid.Column="0" Grid.Row="1" Width="75" Height="75" Source="DB/logo.png"></Image>
+
+            <TextBlock Margin="15,0,0,0"  Grid.Column="1" Grid.Row="1"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource WhiteFont}"
+                   FontFamily="{StaticResource Robot}"
+                   Text="Search"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+
+            <TextBlock Margin="90,0,0,0"  Grid.Column="3" Grid.Row="1"
+                   FontSize="12"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource WhiteFont}"
+                   FontFamily="{StaticResource Robot}"
+                   Text="{Binding CurrentDate}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+
+            <Button Margin="50,0,0,0"  Grid.Column="4" Grid.Row="1"  
+                    Content="Dashboard"
+                    Click="Button_Click_3" Style="{StaticResource Navigation}"></Button>
+
+            <Button  Margin="15,0,0,0"  Grid.Column="5" Grid.Row="1" 
+                    Content="Search" IsEnabled="False"
+                    Click="Button_Click" Style="{StaticResource ButtonPressed}"></Button>
+
+            <Button  Margin="15,0,0,0"  Grid.Column="6" Grid.Row="1" 
+                    Content="About Us" Click="Button_Click_1" Style="{StaticResource Navigation}"></Button>
+            
+            <Button  Margin="15,0,0,0"  Grid.Column="7" Grid.Row="1" 
+                    Content="Contact"
+                    Click="Button_Click_2" Style="{StaticResource Navigation}"></Button>
+
+        </Grid>
+
+        <Grid x:Name="PagesGrid" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0" Width="Auto" Background="#616161">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" Text="Unit Time" Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"/>
+                
+                <ComboBox Margin="10,0,0,0" Grid.Column="2" Grid.Row="1"
+                        HorizontalAlignment="Center"
+		                VerticalAlignment="Center"
+                          Text="Unit Time"
+                        ItemsSource="{Binding TimeUnits}"
+                        SelectedValue="{Binding SelectedTimeUnit}"
+                          IsEnabled="{Binding IsTimeUnitsEnable}"/>
+
+                <TextBlock Margin="10,0,0,0" Grid.Column="3" Grid.Row="1" Text="Start Time" Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"/>
+                
+                <DatePicker Margin="10,0,0,0" Grid.Column="4" Grid.Row="1"
+                        HorizontalAlignment="Center"
+		                VerticalAlignment="Center"
+                        Text="Start Time"
+		                SelectedDate="{Binding SelectedStartDate}"/>
+
+                <TextBlock Margin="10,0,0,0" Grid.Column="5" Grid.Row="1" Text="End Time" Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"/>
+                <DatePicker Margin="10,0,0,0" Grid.Column="6" Grid.Row="1"
+                        HorizontalAlignment="Center"
+		                VerticalAlignment="Center"
+                        Text="End Time"
+		                SelectedDate="{Binding SelectedEndDate}"/>
+
+                <CheckBox Margin="40,0,0,0" x:Name="timeObservedCb"
+                          Grid.Column="7" Grid.Row="1"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Content="Time Observed"
+                          Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"
+                          IsChecked="{Binding IsTimeObservedChecked}"
+                          ></CheckBox>
+
+                <TextBlock Margin="10,0,0,0" Name="fromLabel" Grid.Column="8" Grid.Row="1" Text="From" IsEnabled="{Binding IsTimeObservedChecked}" Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"/>
+                <wpfTool:TimePicker Margin="10,0,0,0" Name="fromTimePicker"  Grid.Column="9" Grid.Row="1" IsEnabled="{Binding IsTimeObservedChecked}"
+                            Value="{Binding SelectedFromDateTime}" />
+                <TextBlock Margin="10,0,0,0" Name="toLabel" Grid.Column="10" Grid.Row="1" Text="To" IsEnabled="{Binding IsTimeObservedChecked}" Foreground="{StaticResource WhiteFont}" FontFamily="{StaticResource Robot}"/>
+                <wpfTool:TimePicker Margin="10,0,0,0" Name="toTimePicker" Grid.Column="11" Grid.Row="1"
+                            Value="{Binding SelectedToDateTime}" IsEnabled="{Binding IsTimeObservedChecked}"/>
+
+            </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="1" Width="1300" Background="#616161">
+            <TabControl Margin="20,0,0,0" Width="1100" HorizontalAlignment="Left"  SelectedIndex="{Binding SelectedTab}" Name="tabControl" SelectionChanged="TabControl_SelectionChanged">
+                <TabItem Header="Total Vehicle">
+                        <Grid Width="Auto" Background="#9E9E9E" Height="330">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Query Tools -->
+                        <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Weight -->
+                                <GroupBox Header="Weight" Grid.Row="0">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding MinWeightFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                        <TextBox Grid.Column="1" Text="{Binding MaxWeightFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                    </Grid>
+                                </GroupBox>
+
+                                <!-- Axle -->
+                                <GroupBox Header="Axle" Grid.Row="1">
+                                    <wpfTool:IntegerUpDown Width="80" Value="{Binding AxleFilter}" PreviewTextInput="IntegerUpDown_PreviewTextInput" />
+                                </GroupBox>
+
+                                <!-- Length -->
+                                <GroupBox Header="Length" Grid.Row="2">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="Axle" Content="Class" IsChecked="{Binding IsLengthClassChecked}" />
+                                        <RadioButton Grid.Column="1" Grid.Row="0" GroupName="Axle" Content="Value" IsChecked="{Binding IsLengthValueChecked}" />
+
+                                        <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding MinLengthFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding MaxLengthFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                    </Grid>
+                                </GroupBox>
+
+                                <!-- Speed -->
+                                <GroupBox Header="Speed" Grid.Row="3">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding MinSpeedFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                        <TextBox Grid.Column="1" Text="{Binding MaxSpeedFilter}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                    </Grid>
+                                </GroupBox>
+
+                                <!-- Lane -->
+                                <GroupBox Header="Lane" Grid.Row="4">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                    </Grid>
+                                </GroupBox>
+
+
+                            </Grid>
+                        </StackPanel>
+
+                        <!-- Filter Tools -->
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                            <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Weight"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsWeightFilterActive}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="Axle"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsAxleFilterActive}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="3" Grid.Row="0"
+	                                        Content="Length"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLengthFilterActive}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="4" Grid.Row="0"
+	                                        Content="Speed"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsSpeedFilterActive}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="5" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+
+                        </Grid>
+
+                        <!-- Chart -->
+                        <chartingToolkit:Chart Grid.Column="2" Grid.Row="2" Height="262" HorizontalAlignment="center" Name="totalVehiclesChart" VerticalAlignment="Center" Width="350" BorderThickness="0">
+                            <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding VehicleChartData}">
+                                <chartingToolkit:ColumnSeries.IndependentAxis>
+                                    <chartingToolkit:CategoryAxis Orientation="X">
+                                        <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                            <Style TargetType="chartingToolkit:AxisLabel">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                            <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                <TextBlock.LayoutTransform>
+                                                                    <RotateTransform Angle="-90"/>
+                                                                </TextBlock.LayoutTransform>
+                                                            </TextBlock>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                    </chartingToolkit:CategoryAxis>
+                                </chartingToolkit:ColumnSeries.IndependentAxis>
+                            </chartingToolkit:ColumnSeries>
+                        </chartingToolkit:Chart>
+
+                        <!-- Comparison -->
+                        <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Width="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Column="0" Grid.Row="1" 
+                                       Content="Add Comparison" Width="100" Height="Auto" Command="{Binding AddComparisonCommand}"
+                                       />
+                            <Button Grid.Column="1" Grid.Row="1" 
+                                       Content="Clear" Width="100" Height="Auto" Command="{Binding ClearComparisonCommand}"
+                                       />
+
+                            <ListBox x:Name="lstExclude"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" SelectionMode="Single" ItemsSource="{Binding ComparisonItems}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox  Content="{Binding Text}" 
+                                        IsChecked="{Binding IsChecked ,Mode=TwoWay}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Weight" >
+                        <Grid Width="Auto" Background="#9E9E9E" Height="400">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Query Tools -->
+                        <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Percentile -->
+                                <GroupBox Header="Percentile" Grid.Row="0">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding WeightPercentile}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                    </Grid>
+                                </GroupBox>
+
+                                <!-- Lane -->
+                                <GroupBox Header="Lane" Grid.Row="4">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </StackPanel>
+
+                        <!-- Filter Tools -->
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Display" />
+
+                            <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Average"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsAverageDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="Highest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsHighestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="3" Grid.Row="0"
+	                                        Content="Lowest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLowestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            <CheckBox Grid.Column="4" Grid.Row="0"
+	                                        Content="N-th tile"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsNthTileChecked}"
+	                                        VerticalAlignment="Center" />
+
+                        </Grid>
+                        <!-- Charts -->
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                            <!-- Chart -->
+                            <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Height="262" HorizontalAlignment="center" Name="weightChart" VerticalAlignment="Center" Width="350" BorderThickness="0">
+                                <chartingToolkit:LineSeries Title="Average" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageWeigthChartData}">
+                                </chartingToolkit:LineSeries>
+                                <chartingToolkit:LineSeries Title="Highest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HighestWeigthChartData }">
+                                </chartingToolkit:LineSeries>
+                                <chartingToolkit:LineSeries Title="Lowest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LowestWeigthChartData }">
+                                </chartingToolkit:LineSeries>
+                                <chartingToolkit:LineSeries Title="Nth Tile" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding NthTileWeigthChartData }">
+                                </chartingToolkit:LineSeries>
+
+                                <chartingToolkit:Chart.Axes>
+                                    <chartingToolkit:CategoryAxis Orientation="X">
+                                        <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                            <Style TargetType="chartingToolkit:AxisLabel">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                            <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                <TextBlock.LayoutTransform>
+                                                                    <RotateTransform Angle="-90"/>
+                                                                </TextBlock.LayoutTransform>
+                                                            </TextBlock>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                    </chartingToolkit:CategoryAxis>
+                                </chartingToolkit:Chart.Axes>
+                            </chartingToolkit:Chart>
+
+                            
+                        </Grid>
+
+                            <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Height="230" HorizontalAlignment="center" Name="weightHistogramChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding WeightHistogramChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}" FontSize="10">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+                                <chartingToolkit:Chart Margin="0,-50,0,0" Grid.Column="0" Grid.Row="1" Height="180" HorizontalAlignment="center" Name="weightPercentileChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding WeightPercentileChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="">
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+                            </Grid>
+
+                        <!-- Comparison -->
+                        <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Width="300" Margin="15,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                                <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+                            </Grid>
+                            <Button Grid.Column="0" Grid.Row="2" 
+                                       Content="Add Comparison" Width="100" Height="Auto" Command="{Binding AddComparisonCommand}"
+                                       />
+                            <Button Grid.Column="1" Grid.Row="2" 
+                                       Content="Clear" Width="100" Height="Auto" Command="{Binding ClearComparisonCommand}"
+                                       />
+
+                            <ListBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding ComparisonItems}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox  Content="{Binding Text}" 
+                                        IsChecked="{Binding IsChecked ,Mode=TwoWay}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                    <TabItem Header="Speed">
+                        <Grid Width="Auto" Background="#9E9E9E" Height="400">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Query Tools -->
+                            <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Percentile -->
+                                    <GroupBox Header="Percentile" Grid.Row="0">
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Grid.Column="0" Text="{Binding WeightPercentile}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                        </Grid>
+                                    </GroupBox>
+                                    
+                                    <!-- Lane -->
+                                    <GroupBox Header="Lane" Grid.Row="4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Filter Tools -->
+                            <Grid Grid.Column="2" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Display" />
+
+                                <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Average"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsAverageDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="Highest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsHighestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="3" Grid.Row="0"
+	                                        Content="Lowest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLowestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="4" Grid.Row="0"
+	                                        Content="N-th tile"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsNthTileChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            </Grid>
+                            <!-- Charts -->
+                            <Grid Grid.Column="2" Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Chart -->
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Height="262" HorizontalAlignment="center" Name="speedChart" VerticalAlignment="Center" Width="350" BorderThickness="0">
+                                    <chartingToolkit:LineSeries Title="Average" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageSpeedChartData}">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Highest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HighestSpeedChartData }">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Lowest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LowestSpeedChartData }">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Nth Tile" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding NthTileSpeedChartData }">
+                                    </chartingToolkit:LineSeries>
+
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Height="230" HorizontalAlignment="center" Name="speedHistogramChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding SpeedHistogramChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}" FontSize="10">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+                                <chartingToolkit:Chart Margin="0,-50,0,0" Grid.Column="0" Grid.Row="1" Height="180" HorizontalAlignment="center" Name="speedPercentileChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding SpeedPercentileChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="">
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+                            </Grid>
+
+                            <!-- Comparison -->
+                            <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Width="300" Margin="15,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                                    <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+                                </Grid>
+                                <Button Grid.Column="0" Grid.Row="2" 
+                                       Content="Add Comparison" Width="100" Height="Auto" Command="{Binding AddComparisonCommand}"
+                                       />
+                                <Button Grid.Column="1" Grid.Row="2" 
+                                       Content="Clear" Width="100" Height="Auto" Command="{Binding ClearComparisonCommand}"
+                                       />
+
+                                <ListBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding ComparisonItems}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox  Content="{Binding Text}" 
+                                        IsChecked="{Binding IsChecked ,Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                <TabItem Header="Length">
+                        <Grid Width="Auto" Background="#9E9E9E" Height="400">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Query Tools -->
+                            <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Percentile -->
+                                    <GroupBox Header="Percentile" Grid.Row="0">
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Grid.Column="0" Text="{Binding WeightPercentile}" Width="80" PreviewTextInput="TextBlock_PreviewTextInput" ></TextBox>
+                                        </Grid>
+                                    </GroupBox>
+                                    
+                                    <!-- Lane -->
+                                    <GroupBox Header="Lane" Grid.Row="4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Filter Tools -->
+                            <Grid Grid.Column="2" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Display" />
+
+                                <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Average"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsAverageDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="Highest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsHighestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="3" Grid.Row="0"
+	                                        Content="Lowest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLowestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="4" Grid.Row="0"
+	                                        Content="N-th tile"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsNthTileChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            </Grid>
+                            <!-- Charts -->
+                            <Grid Grid.Column="2" Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Chart -->
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Height="262" HorizontalAlignment="center" Name="lengthChart" VerticalAlignment="Center" Width="350" BorderThickness="0">
+                                    <chartingToolkit:LineSeries Title="Average" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageLengthChartData}">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Highest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HighestLengthChartData }">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Lowest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LowestLengthChartData }">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Nth Tile" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding NthTileLengthChartData }">
+                                    </chartingToolkit:LineSeries>
+
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Height="230" HorizontalAlignment="center" Name="lengthHistogramChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LengthHistogramChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}" FontSize="10">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+                                <chartingToolkit:Chart Margin="0,-50,0,0" Grid.Column="0" Grid.Row="1" Height="180" HorizontalAlignment="center" Name="lengthPercentileChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LengthPercentileChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="">
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+                            </Grid>
+
+                            <!-- Comparison -->
+                            <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Width="300" Margin="15,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                                    <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+                                </Grid>
+                                <Button Grid.Column="0" Grid.Row="2" 
+                                       Content="Add Comparison" Width="100" Height="Auto" Command="{Binding AddComparisonCommand}"
+                                       />
+                                <Button Grid.Column="1" Grid.Row="2" 
+                                       Content="Clear" Width="100" Height="Auto" Command="{Binding ClearComparisonCommand}"
+                                       />
+
+                                <ListBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding ComparisonItems}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox  Content="{Binding Text}" 
+                                        IsChecked="{Binding IsChecked ,Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                <TabItem Header="Headway">
+                        <Grid Width="Auto" Background="#9E9E9E" Height="400">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Query Tools -->
+                            <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Lane -->
+                                    <GroupBox Header="Lane" Grid.Row="4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                            <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Filter Tools -->
+                            <Grid Grid.Column="2" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Display" />
+
+                                <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Average"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsAverageDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="Highest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsHighestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                <CheckBox Grid.Column="3" Grid.Row="0"
+	                                        Content="Lowest"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLowestDisplayChecked}"
+	                                        VerticalAlignment="Center" />
+
+                            </Grid>
+                            <!-- Charts -->
+                            <Grid Grid.Column="2" Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Chart -->
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Height="262" HorizontalAlignment="center" Name="headwayChart" VerticalAlignment="Center" Width="350" BorderThickness="0">
+                                    <chartingToolkit:LineSeries Title="Average" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageHeadwayChartData}">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Highest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HighestHeadwayChartData }">
+                                    </chartingToolkit:LineSeries>
+                                    <chartingToolkit:LineSeries Title="Lowest" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding LowestHeadwayChartData }">
+                                    </chartingToolkit:LineSeries>
+
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+
+                            </Grid>
+
+                            <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <chartingToolkit:Chart Grid.Column="0" Grid.Row="0" Height="230" HorizontalAlignment="center" Name="headwayHistogramChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HeadwayHistogramChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="{TemplateBinding FormattedContent}" FontSize="10">
+                                                                    <TextBlock.LayoutTransform>
+                                                                        <RotateTransform Angle="-90"/>
+                                                                    </TextBlock.LayoutTransform>
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+
+                                <chartingToolkit:Chart Margin="0,-50,0,0" Grid.Column="0" Grid.Row="1" Height="180" HorizontalAlignment="center" Name="headwayPercentileChart" VerticalAlignment="Center" Width="250" BorderThickness="0">
+                                    <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding HeadwayPercentileChartData}">
+                                    </chartingToolkit:ColumnSeries>
+                                    <chartingToolkit:Chart.Axes>
+                                        <chartingToolkit:CategoryAxis Orientation="X">
+                                            <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                                <Style TargetType="chartingToolkit:AxisLabel">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                                <TextBlock Text="">
+                                                                </TextBlock>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                        </chartingToolkit:CategoryAxis>
+                                    </chartingToolkit:Chart.Axes>
+                                </chartingToolkit:Chart>
+                            </Grid>
+
+                            <!-- Comparison -->
+                            <Grid Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Width="300" Margin="15,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                                    <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+                                </Grid>
+                                <Button Grid.Column="0" Grid.Row="2" 
+                                       Content="Add Comparison" Width="100" Height="Auto" Command="{Binding AddComparisonCommand}"
+                                       />
+                                <Button Grid.Column="1" Grid.Row="2" 
+                                       Content="Clear" Width="100" Height="Auto" Command="{Binding ClearComparisonCommand}"
+                                       />
+
+                                <ListBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" SelectionMode="Single" ItemsSource="{Binding ComparisonItems}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox  Content="{Binding Text}" 
+                                        IsChecked="{Binding IsChecked ,Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                <TabItem Header="CalculatedData" >
+                        <Grid Width="Auto" Background="#9E9E9E" Height="330">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Query Tools -->
+                        <StackPanel Grid.Column="1" Width="200" Grid.Row="1" Grid.RowSpan="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Lane -->
+                                <GroupBox Header="Lane" Grid.Row="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <CheckBox Grid.Column="0" Grid.Row="0"
+	                                        Content="1"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane1IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="2"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane2IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="0"
+	                                        Content="3"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane3IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="0" Grid.Row="1"
+	                                        Content="4"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane4IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="1" Grid.Row="1"
+	                                        Content="5"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane5IsChecked}"
+	                                        VerticalAlignment="Center" />
+
+                                        <CheckBox Grid.Column="2" Grid.Row="1"
+	                                        Content="6"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="40"
+                                            IsChecked="{Binding Lane6IsChecked}"
+	                                        VerticalAlignment="Center" />
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </StackPanel>
+
+                        <!-- Charts -->
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Width="Auto" Text="Filter" />
+
+                                <CheckBox Grid.Column="1" Grid.Row="0"
+	                                        Content="Lane"
+	                                        HorizontalAlignment="Center"
+	                                        Margin="10,10,0,0"
+                                            Width="60"
+                                            IsChecked="{Binding IsLaneFilterActive}"
+	                                        VerticalAlignment="Center" />
+                            </Grid>
+
+                            <chartingToolkit:Chart Grid.Column="0" Grid.Row="1" Height="300" Title="Average Traffic Flow" HorizontalAlignment="center" Name="averageTraficFlowChart" VerticalAlignment="Center" Width="400" BorderThickness="0">
+                                <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageTrafficFlowChartData}">
+                                </chartingToolkit:ColumnSeries>
+                                <chartingToolkit:Chart.Axes>
+                                    <chartingToolkit:CategoryAxis Orientation="X">
+                                        <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                            <Style TargetType="chartingToolkit:AxisLabel">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                            <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                <TextBlock.LayoutTransform>
+                                                                    <RotateTransform Angle="-90"/>
+                                                                </TextBlock.LayoutTransform>
+                                                            </TextBlock>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                    </chartingToolkit:CategoryAxis>
+                                </chartingToolkit:Chart.Axes>
+                            </chartingToolkit:Chart>
+
+                            <chartingToolkit:Chart Grid.Column="1" Grid.Row="1" Height="300" Title="Average Traffic Density" HorizontalAlignment="center" Name="averageTraficDensityChart" VerticalAlignment="Center" Width="400" BorderThickness="0">
+                                <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding AverageTrafficDensityChartData}">
+                                </chartingToolkit:ColumnSeries>
+                                <chartingToolkit:Chart.Axes>
+                                    <chartingToolkit:CategoryAxis Orientation="X">
+                                        <chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                            <Style TargetType="chartingToolkit:AxisLabel">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="chartingToolkit:AxisLabel">
+                                                            <TextBlock Text="{TemplateBinding FormattedContent}">
+                                                                <TextBlock.LayoutTransform>
+                                                                    <RotateTransform Angle="-90"/>
+                                                                </TextBlock.LayoutTransform>
+                                                            </TextBlock>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </chartingToolkit:CategoryAxis.AxisLabelStyle>
+                                    </chartingToolkit:CategoryAxis>
+                                </chartingToolkit:Chart.Axes>
+                            </chartingToolkit:Chart>
+                        </Grid>
+                        
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
